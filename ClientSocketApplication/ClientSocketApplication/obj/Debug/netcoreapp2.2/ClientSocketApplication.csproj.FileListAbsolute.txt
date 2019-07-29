@@ -1,0 +1,33 @@
+C:\Users\pgupta\source\repos\ClientSocketApplication\ClientSocketApplication\bin\Debug\netcoreapp2.2\ClientSocketApplication.deps.json
+C:\Users\pgupta\source\repos\ClientSocketApplication\ClientSocketApplication\bin\Debug\netcoreapp2.2\ClientSocketApplication.runtimeconfig.json
+C:\Users\pgupta\source\repos\ClientSocketApplication\ClientSocketApplication\bin\Debug\netcoreapp2.2\ClientSocketApplication.runtimeconfig.dev.json
+C:\Users\pgupta\source\repos\ClientSocketApplication\ClientSocketApplication\bin\Debug\netcoreapp2.2\ClientSocketApplication.dll
+C:\Users\pgupta\source\repos\ClientSocketApplication\ClientSocketApplication\bin\Debug\netcoreapp2.2\ClientSocketApplication.pdb
+C:\Users\pgupta\source\repos\ClientSocketApplication\ClientSocketApplication\obj\Debug\netcoreapp2.2\ClientSocketApplication.csprojResolveAssemblyReference.cache
+C:\Users\pgupta\source\repos\ClientSocketApplication\ClientSocketApplication\obj\Debug\netcoreapp2.2\ClientSocketApplication.csproj.CoreCompileInputs.cache
+C:\Users\pgupta\source\repos\ClientSocketApplication\ClientSocketApplication\obj\Debug\netcoreapp2.2\ClientSocketApplication.AssemblyInfoInputs.cache
+C:\Users\pgupta\source\repos\ClientSocketApplication\ClientSocketApplication\obj\Debug\netcoreapp2.2\ClientSocketApplication.AssemblyInfo.cs
+C:\Users\pgupta\source\repos\ClientSocketApplication\ClientSocketApplication\obj\Debug\netcoreapp2.2\ClientSocketApplication.dll
+C:\Users\pgupta\source\repos\ClientSocketApplication\ClientSocketApplication\obj\Debug\netcoreapp2.2\ClientSocketApplication.pdb
+C:\Users\rtiwari\Desktop\repos (003)\ClientSocketApplication\ClientSocketApplication\bin\Debug\netcoreapp2.2\ClientSocketApplication.deps.json
+C:\Users\rtiwari\Desktop\repos (003)\ClientSocketApplication\ClientSocketApplication\bin\Debug\netcoreapp2.2\ClientSocketApplication.runtimeconfig.json
+C:\Users\rtiwari\Desktop\repos (003)\ClientSocketApplication\ClientSocketApplication\bin\Debug\netcoreapp2.2\ClientSocketApplication.runtimeconfig.dev.json
+C:\Users\rtiwari\Desktop\repos (003)\ClientSocketApplication\ClientSocketApplication\bin\Debug\netcoreapp2.2\ClientSocketApplication.dll
+C:\Users\rtiwari\Desktop\repos (003)\ClientSocketApplication\ClientSocketApplication\bin\Debug\netcoreapp2.2\ClientSocketApplication.pdb
+C:\Users\rtiwari\Desktop\repos (003)\ClientSocketApplication\ClientSocketApplication\obj\Debug\netcoreapp2.2\ClientSocketApplication.csprojAssemblyReference.cache
+C:\Users\rtiwari\Desktop\repos (003)\ClientSocketApplication\ClientSocketApplication\obj\Debug\netcoreapp2.2\ClientSocketApplication.csproj.CoreCompileInputs.cache
+C:\Users\rtiwari\Desktop\repos (003)\ClientSocketApplication\ClientSocketApplication\obj\Debug\netcoreapp2.2\ClientSocketApplication.AssemblyInfoInputs.cache
+C:\Users\rtiwari\Desktop\repos (003)\ClientSocketApplication\ClientSocketApplication\obj\Debug\netcoreapp2.2\ClientSocketApplication.AssemblyInfo.cs
+C:\Users\rtiwari\Desktop\repos (003)\ClientSocketApplication\ClientSocketApplication\obj\Debug\netcoreapp2.2\ClientSocketApplication.dll
+C:\Users\rtiwari\Desktop\repos (003)\ClientSocketApplication\ClientSocketApplication\obj\Debug\netcoreapp2.2\ClientSocketApplication.pdb
+C:\Users\pgupta\source\repos\Multi client Chat Application - Copy\ClientSocketApplication\ClientSocketApplication\bin\Debug\netcoreapp2.2\ClientSocketApplication.deps.json
+C:\Users\pgupta\source\repos\Multi client Chat Application - Copy\ClientSocketApplication\ClientSocketApplication\bin\Debug\netcoreapp2.2\ClientSocketApplication.runtimeconfig.json
+C:\Users\pgupta\source\repos\Multi client Chat Application - Copy\ClientSocketApplication\ClientSocketApplication\bin\Debug\netcoreapp2.2\ClientSocketApplication.runtimeconfig.dev.json
+C:\Users\pgupta\source\repos\Multi client Chat Application - Copy\ClientSocketApplication\ClientSocketApplication\bin\Debug\netcoreapp2.2\ClientSocketApplication.dll
+C:\Users\pgupta\source\repos\Multi client Chat Application - Copy\ClientSocketApplication\ClientSocketApplication\bin\Debug\netcoreapp2.2\ClientSocketApplication.pdb
+C:\Users\pgupta\source\repos\Multi client Chat Application - Copy\ClientSocketApplication\ClientSocketApplication\obj\Debug\netcoreapp2.2\ClientSocketApplication.csprojResolveAssemblyReference.cache
+C:\Users\pgupta\source\repos\Multi client Chat Application - Copy\ClientSocketApplication\ClientSocketApplication\obj\Debug\netcoreapp2.2\ClientSocketApplication.csproj.CoreCompileInputs.cache
+C:\Users\pgupta\source\repos\Multi client Chat Application - Copy\ClientSocketApplication\ClientSocketApplication\obj\Debug\netcoreapp2.2\ClientSocketApplication.AssemblyInfoInputs.cache
+C:\Users\pgupta\source\repos\Multi client Chat Application - Copy\ClientSocketApplication\ClientSocketApplication\obj\Debug\netcoreapp2.2\ClientSocketApplication.AssemblyInfo.cs
+C:\Users\pgupta\source\repos\Multi client Chat Application - Copy\ClientSocketApplication\ClientSocketApplication\obj\Debug\netcoreapp2.2\ClientSocketApplication.dll
+C:\Users\pgupta\source\repos\Multi client Chat Application - Copy\ClientSocketApplication\ClientSocketApplication\obj\Debug\netcoreapp2.2\ClientSocketApplication.pdb
