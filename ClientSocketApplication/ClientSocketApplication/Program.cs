@@ -44,6 +44,7 @@ namespace ClientSocketApplication
                 clientSocket.Connect(ipAddr, portNumber);
 
                 Console.WriteLine("Connected to the server...");
+
                 Console.WriteLine("Please enter your name : ");
 
                 String name = Console.ReadLine();

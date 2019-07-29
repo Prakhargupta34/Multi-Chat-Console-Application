@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
@@ -14,10 +15,19 @@ namespace ServerSocketApplication
         static string serverName;
         static void Main(string[] args)
         {
-            serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            IPAddress iPAddress = IPAddress.Parse("172.16.5.204");
+            
+            string hostName = Dns.GetHostName();
+
+            IPAddress iPAddress = Dns.GetHostEntry(hostName).AddressList[1];
+           
             int portNumber = 23000;
-            Console.WriteLine(iPAddress.ToString());
+
+            Console.WriteLine("IP Address : " + iPAddress.ToString());
+            Console.WriteLine("Port Number : " + portNumber);
+
+           
+
+            serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 
             IPEndPoint ipep = new IPEndPoint(iPAddress, portNumber);
 
@@ -133,6 +143,22 @@ namespace ServerSocketApplication
 
             }
         }
+        //static string GetPublicIPAddress()
+        //{
+        //    String address = "";
+        //    WebRequest request = WebRequest.Create("http://checkip.dyndns.org/");
+        //    using (WebResponse response = request.GetResponse())
+        //    using (StreamReader stream = new StreamReader(response.GetResponseStream()))
+        //    {
+        //        address = stream.ReadToEnd();
+        //    }
+
+        //    int first = address.IndexOf("Address: ") + 9;
+        //    int last = address.LastIndexOf("</body>");
+        //    address = address.Substring(first, last - first);
+
+        //    return address;
+        //}
     }
 }
 ;
