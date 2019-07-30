@@ -20,3 +20,14 @@ C:\Users\pgupta\source\repos\Multi client Chat Application - Copy\ServerSocketAp
 C:\Users\pgupta\source\repos\Multi client Chat Application - Copy\ServerSocketApplication\ServerSocketApplication\obj\Debug\netcoreapp2.2\ServerSocketApplication.AssemblyInfo.cs
 C:\Users\pgupta\source\repos\Multi client Chat Application - Copy\ServerSocketApplication\ServerSocketApplication\obj\Debug\netcoreapp2.2\ServerSocketApplication.dll
 C:\Users\pgupta\source\repos\Multi client Chat Application - Copy\ServerSocketApplication\ServerSocketApplication\obj\Debug\netcoreapp2.2\ServerSocketApplication.pdb
+C:\git\Multi-Chat-Console-Application\ServerSocketApplication\ServerSocketApplication\bin\Debug\netcoreapp2.2\ServerSocketApplication.deps.json
+C:\git\Multi-Chat-Console-Application\ServerSocketApplication\ServerSocketApplication\bin\Debug\netcoreapp2.2\ServerSocketApplication.runtimeconfig.json
+C:\git\Multi-Chat-Console-Application\ServerSocketApplication\ServerSocketApplication\bin\Debug\netcoreapp2.2\ServerSocketApplication.runtimeconfig.dev.json
+C:\git\Multi-Chat-Console-Application\ServerSocketApplication\ServerSocketApplication\bin\Debug\netcoreapp2.2\ServerSocketApplication.dll
+C:\git\Multi-Chat-Console-Application\ServerSocketApplication\ServerSocketApplication\bin\Debug\netcoreapp2.2\ServerSocketApplication.pdb
+C:\git\Multi-Chat-Console-Application\ServerSocketApplication\ServerSocketApplication\obj\Debug\netcoreapp2.2\ServerSocketApplication.csprojAssemblyReference.cache
+C:\git\Multi-Chat-Console-Application\ServerSocketApplication\ServerSocketApplication\obj\Debug\netcoreapp2.2\ServerSocketApplication.csproj.CoreCompileInputs.cache
+C:\git\Multi-Chat-Console-Application\ServerSocketApplication\ServerSocketApplication\obj\Debug\netcoreapp2.2\ServerSocketApplication.AssemblyInfoInputs.cache
+C:\git\Multi-Chat-Console-Application\ServerSocketApplication\ServerSocketApplication\obj\Debug\netcoreapp2.2\ServerSocketApplication.AssemblyInfo.cs
+C:\git\Multi-Chat-Console-Application\ServerSocketApplication\ServerSocketApplication\obj\Debug\netcoreapp2.2\ServerSocketApplication.dll
+C:\git\Multi-Chat-Console-Application\ServerSocketApplication\ServerSocketApplication\obj\Debug\netcoreapp2.2\ServerSocketApplication.pdb

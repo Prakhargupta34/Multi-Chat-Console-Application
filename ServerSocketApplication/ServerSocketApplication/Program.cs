@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace ServerSocketApplication
 {
@@ -38,21 +39,45 @@ namespace ServerSocketApplication
 
             Console.WriteLine("Ready to receive connections..");
 
-            Thread listenerThread = new Thread(new ThreadStart(Listener));
-            listenerThread.Start();
+            Console.WriteLine("Type message to send, enter <exit> to close :");
 
-            Thread sendThread = new Thread(new ThreadStart(Send));
-            sendThread.Start();
+
+            //Thread listenerThread = new Thread(new ThreadStart(Listener));
+            //listenerThread.Start();
+
+            //Thread sendThread = new Thread(new ThreadStart(Send));
+            //sendThread.Start();
+            Task.Factory.StartNew(Listener);
+
+            while (true)
+            {
+                string message = Console.ReadLine();
+                if (message == "<exit>")
+                {
+                    Console.WriteLine("Press any key to exit...");
+                    Console.Read();
+                    break;
+                }             
+                message = message + "^" + serverName;
+                Byte[] buffSend = Encoding.ASCII.GetBytes(message);
+
+                foreach (var clientSocket in clientSocketNameMapper.Keys)
+                {
+                    clientSocket.Send(Encoding.ASCII.GetBytes(message));
+                }
+            }
         }
 
         static void Listener()
         {
             Socket client = serverSocket.Accept();
-            Thread receiveThread = new Thread(() => Receiver(client));
-            receiveThread.Start();
+            //Thread receiveThread = new Thread(() => Receiver(client));
+            //receiveThread.Start();
 
-            Thread listenerThread = new Thread(new ThreadStart(Listener));
-            listenerThread.Start();
+            //Thread listenerThread = new Thread(new ThreadStart(Listener));
+            //listenerThread.Start();
+            Task.Factory.StartNew(() => Receiver(client));
+            Task.Factory.StartNew(Listener);
         }
         static void Receiver(Socket client)
         {
@@ -104,16 +129,7 @@ namespace ServerSocketApplication
         }
         static void Send()
         {
-            while (true)
-            {
-                string msgToSend = Console.ReadLine() + "^" + serverName;
-                Byte[] buffSend = Encoding.ASCII.GetBytes(msgToSend);
-
-                foreach (var clientSocket in clientSocketNameMapper.Keys)
-                {
-                    clientSocket.Send(Encoding.ASCII.GetBytes(msgToSend));
-                }
-            }
+           
         }
     }
 }
