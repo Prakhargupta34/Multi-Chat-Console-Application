@@ -9,6 +9,7 @@ namespace ClientSocketApplication
     class Program
     {
         static Socket clientSocket;
+        const int MESSAGESIZE = 1024 * 1024;
         static void Main(string[] args)
         {
             clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
@@ -18,12 +19,11 @@ namespace ClientSocketApplication
             {
                 Console.WriteLine("Enter the valid IP Address :");
                 string strIpAddr = Console.ReadLine();
-                if(!IPAddress.TryParse(strIpAddr, out ipAddr))
+                if (!IPAddress.TryParse(strIpAddr, out ipAddr))
                 {
                     Console.WriteLine("IP Address is not valid");
                     return;
                 }
-
                 Console.WriteLine("Enter the valid Port Number (0 - 65535) :");
                 string strPortInput = Console.ReadLine().ToString();
                 int portNumber = 0;
@@ -33,18 +33,15 @@ namespace ClientSocketApplication
                     Console.WriteLine("Port Number is not valid");
                     return;
                 }
-                if(portNumber <= 0 && portNumber >65535)
+                if (portNumber <= 0 && portNumber > 65535)
                 {
                     Console.WriteLine("Port Number is not valid, should be between 0 & 65535");
                     return;
                 }
 
-                //Console.WriteLine($"IP Address : {ipAddr.ToString()}, Port No : {portNumber} ");
-
                 clientSocket.Connect(ipAddr, portNumber);
 
                 Console.WriteLine("Connected to the server...");
-
                 Console.WriteLine("Please enter your name : ");
 
                 String name = Console.ReadLine();
@@ -53,67 +50,51 @@ namespace ClientSocketApplication
 
                 clientSocket.Send(buffName);
 
-               
-                //Console.WriteLine("Enter the text to send and press enter, type <exit> to close application ");
-
-                string inputCommand=string.Empty;
-
+                string message = string.Empty;
 
                 Thread receiveThread = new Thread(new ThreadStart(Receive));
+                receiveThread.IsBackground = true;
                 receiveThread.Start();
-
-                while (true)
+                try
                 {
-                   
-                    if (inputCommand.Equals("<exit>"))
-                        break;
-                    //Console.WriteLine("Type message to send to the client, press ';' to terminate the message ");
                     while (true)
                     {
-                        
-                        inputCommand = Console.ReadLine();
-                        Byte[] buffSend = Encoding.ASCII.GetBytes(inputCommand);
+                        message = Console.ReadLine();
+                        Byte[] buffSend = Encoding.ASCII.GetBytes(message);
                         clientSocket.Send(buffSend);
-
-                        //if (inputCommand[inputCommand.Length - 1].Equals(';'))
-                        //{
-                        //    break;
-                        //}
                     }
-
-   
-                    
-                   
+                }
+                catch (Exception e)
+                {
+                    clientSocket.Close();
                 }
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
             }
-            //finally
-            //{
-            //    clientSocket.Shutdown(SocketShutdown.Both);
-            //    clientSocket.Close();
-            //    clientSocket.Dispose();
-            //}
 
             Console.WriteLine("Press a key to exit...");
             Console.ReadKey();
         }
         static void Receive()
         {
-            while (true)
+            try
             {
-                Byte[] buffReceive = new Byte[128];
-                int nRecv = clientSocket.Receive(buffReceive);
-                string data = Encoding.ASCII.GetString(buffReceive, 0, nRecv);
-                string clientName = data.Split('^')[1];
-                Console.WriteLine($"{clientName} : {data.Split('^')[0]}");
-                //if (data[data.Length - 1].Equals(';'))
-                //{
-                //    break;
-                //}
+                while (true)
+                {
+                    Byte[] buffReceive = new Byte[MESSAGESIZE];
+                    int nRecv = clientSocket.Receive(buffReceive);
+                    string data = Encoding.ASCII.GetString(buffReceive, 0, nRecv);
+                    string clientName = data.Split('^')[1];
+                    Console.WriteLine($"{clientName} : {data.Split('^')[0]}");
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+                Console.WriteLine("Press any key to close");
             }
         }
 

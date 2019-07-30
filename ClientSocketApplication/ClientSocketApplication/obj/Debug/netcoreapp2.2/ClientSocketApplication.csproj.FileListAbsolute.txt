@@ -31,3 +31,14 @@ C:\Users\pgupta\source\repos\Multi client Chat Application - Copy\ClientSocketAp
 C:\Users\pgupta\source\repos\Multi client Chat Application - Copy\ClientSocketApplication\ClientSocketApplication\obj\Debug\netcoreapp2.2\ClientSocketApplication.AssemblyInfo.cs
 C:\Users\pgupta\source\repos\Multi client Chat Application - Copy\ClientSocketApplication\ClientSocketApplication\obj\Debug\netcoreapp2.2\ClientSocketApplication.dll
 C:\Users\pgupta\source\repos\Multi client Chat Application - Copy\ClientSocketApplication\ClientSocketApplication\obj\Debug\netcoreapp2.2\ClientSocketApplication.pdb
+C:\Users\rtiwari\Desktop\Multi-Chat-Console-Application\ClientSocketApplication\ClientSocketApplication\bin\Debug\netcoreapp2.2\ClientSocketApplication.deps.json
+C:\Users\rtiwari\Desktop\Multi-Chat-Console-Application\ClientSocketApplication\ClientSocketApplication\bin\Debug\netcoreapp2.2\ClientSocketApplication.runtimeconfig.json
+C:\Users\rtiwari\Desktop\Multi-Chat-Console-Application\ClientSocketApplication\ClientSocketApplication\bin\Debug\netcoreapp2.2\ClientSocketApplication.runtimeconfig.dev.json
+C:\Users\rtiwari\Desktop\Multi-Chat-Console-Application\ClientSocketApplication\ClientSocketApplication\bin\Debug\netcoreapp2.2\ClientSocketApplication.dll
+C:\Users\rtiwari\Desktop\Multi-Chat-Console-Application\ClientSocketApplication\ClientSocketApplication\bin\Debug\netcoreapp2.2\ClientSocketApplication.pdb
+C:\Users\rtiwari\Desktop\Multi-Chat-Console-Application\ClientSocketApplication\ClientSocketApplication\obj\Debug\netcoreapp2.2\ClientSocketApplication.csprojAssemblyReference.cache
+C:\Users\rtiwari\Desktop\Multi-Chat-Console-Application\ClientSocketApplication\ClientSocketApplication\obj\Debug\netcoreapp2.2\ClientSocketApplication.csproj.CoreCompileInputs.cache
+C:\Users\rtiwari\Desktop\Multi-Chat-Console-Application\ClientSocketApplication\ClientSocketApplication\obj\Debug\netcoreapp2.2\ClientSocketApplication.AssemblyInfoInputs.cache
+C:\Users\rtiwari\Desktop\Multi-Chat-Console-Application\ClientSocketApplication\ClientSocketApplication\obj\Debug\netcoreapp2.2\ClientSocketApplication.AssemblyInfo.cs
+C:\Users\rtiwari\Desktop\Multi-Chat-Console-Application\ClientSocketApplication\ClientSocketApplication\obj\Debug\netcoreapp2.2\ClientSocketApplication.dll
+C:\Users\rtiwari\Desktop\Multi-Chat-Console-Application\ClientSocketApplication\ClientSocketApplication\obj\Debug\netcoreapp2.2\ClientSocketApplication.pdb
