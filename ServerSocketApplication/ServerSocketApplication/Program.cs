@@ -11,29 +11,25 @@ namespace ServerSocketApplication
     class Program
     {
         static Socket serverSocket;
-        static Dictionary<Socket, string> clientSocketNameMapper = new Dictionary<Socket, string>(); 
+        static Dictionary<Socket, string> clientSocketNameMapper = new Dictionary<Socket, string>();
         static string serverName;
+        const int MESSAGESIZE = 1024*1024;
         static void Main(string[] args)
         {
-            
             string hostName = Dns.GetHostName();
 
             IPAddress iPAddress = Dns.GetHostEntry(hostName).AddressList[1];
-           
-            int portNumber = 23000;
+
+            int portNumber = 3000;
 
             Console.WriteLine("IP Address : " + iPAddress.ToString());
             Console.WriteLine("Port Number : " + portNumber);
 
-           
-
             serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 
-            IPEndPoint ipep = new IPEndPoint(iPAddress, portNumber);
+            IPEndPoint ipEndPoint = new IPEndPoint(iPAddress, portNumber);
 
-            serverSocket.Bind(ipep);
-
-            //Console.WriteLine($"IP Address : {iPAddress.ToString()}, Port No : {portNumber} ");
+            serverSocket.Bind(ipEndPoint);
 
             serverSocket.Listen(50);
 
@@ -42,123 +38,82 @@ namespace ServerSocketApplication
 
             Console.WriteLine("Ready to receive connections..");
 
-            for (int i = 0; i < 50; i++)
-            {
-                Thread newThread = new Thread(new ThreadStart(Listeners));
-                newThread.Start();
-            }
+            Thread listenerThread = new Thread(new ThreadStart(Listener));
+            listenerThread.Start();
 
             Thread sendThread = new Thread(new ThreadStart(Send));
             sendThread.Start();
-
-
-            //Listeners();
-
-
-
         }
-        static void Listeners()
+
+        static void Listener()
         {
             Socket client = serverSocket.Accept();
+            Thread receiveThread = new Thread(() => Receiver(client));
+            receiveThread.Start();
 
-            Byte[] buffName = new Byte[128];
+            Thread listenerThread = new Thread(new ThreadStart(Listener));
+            listenerThread.Start();
+        }
+        static void Receiver(Socket client)
+        {
+            Byte[] buffName = new Byte[MESSAGESIZE];
 
-            int nBuffSize = client.Receive(buffName);
-
-            String clientName = Encoding.ASCII.GetString(buffName, 0, nBuffSize);
-
-            clientSocketNameMapper[client]= clientName;
-
-
-            Console.WriteLine($"Client Name:{clientName} Remote End Point : {client.RemoteEndPoint.ToString()} connected");
-
-            //string msgToSend;
-
-            while (true)
+            try
             {
+                int nBuffSize = client.Receive(buffName);
+
+                String clientName = Encoding.ASCII.GetString(buffName, 0, nBuffSize);
+
+                foreach (var clientSocket in clientSocketNameMapper.Keys)
+                    clientSocket.Send(Encoding.ASCII.GetBytes($"Connected^{clientName}"));
+
+                clientSocketNameMapper[client] = clientName;
+
+                Console.WriteLine($"Client Name:{clientName} Remote End Point : {client.RemoteEndPoint.ToString()} connected");
 
                 while (true)
                 {
-                    string data = "";
+                    string message = "";
 
-                    Byte[] buffReceive = new Byte[128];
+                    Byte[] buffReceive = new Byte[MESSAGESIZE];
 
                     int numByte = client.Receive(buffReceive);
 
-                    data = Encoding.ASCII.GetString(buffReceive, 0, numByte);
+                    message = Encoding.ASCII.GetString(buffReceive, 0, numByte);
 
+                    Console.WriteLine($"{clientName} : {message}");
 
-                    Console.WriteLine($"{clientName} : {data}");
-
-                    foreach(var clientSocket in clientSocketNameMapper.Keys)
+                    foreach (var clientSocket in clientSocketNameMapper.Keys)
                     {
-                        data += $"^{clientName}";
+                        message = message + $"^{clientName}";
                         if (!clientSocket.Equals(client))
-                            clientSocket.Send(Encoding.ASCII.GetBytes(data));
-                       
+                            clientSocket.Send(Encoding.ASCII.GetBytes(message));
                     }
-
-                    //data += Encoding.ASCII.GetString(buffReceive,
-                    //                         0, numByte);
-
-                    //if (data[data.Length - 1].Equals(';'))
-                    //    break;
                 }
-                //Console.WriteLine("Message has received from client, Now you can send message, place ';' to terminate the message");
-
-                ////int nRecv = client.Receive(buffReceive);
-
-                ////Console.WriteLine($"Data Received from Client : {Encoding.ASCII.GetString(buffReceive, 0, nRecv)}");
-                ////Console.WriteLine($"Data Received from Client : {data}");
-                ////Console.WriteLine($"Enter text to send to client :");
-                //while (true)
-                //{
-                //    msgToSend = Console.ReadLine();
-
-                //    Byte[] buffSend = Encoding.ASCII.GetBytes(msgToSend);
-                //    client.Send(buffSend);
-                //    if (msgToSend[msgToSend.Length - 1].Equals(';'))
-                //        break;
-                //}
-
-
             }
+            catch
+            {
+                string clientName = clientSocketNameMapper[client];
+                Console.WriteLine($"Client Name:{clientName} Remote End Point : {client.RemoteEndPoint.ToString()} disconnected");
+                clientSocketNameMapper.Remove(client);
+                client.Close();
 
+                foreach (var clientSocket in clientSocketNameMapper.Keys)
+                    clientSocket.Send(Encoding.ASCII.GetBytes($"Disconnected^{clientName}"));
+            }
         }
         static void Send()
         {
-            while(true)
+            while (true)
             {
-
-                string msgToSend = Console.ReadLine()+"^"+serverName;
+                string msgToSend = Console.ReadLine() + "^" + serverName;
                 Byte[] buffSend = Encoding.ASCII.GetBytes(msgToSend);
 
                 foreach (var clientSocket in clientSocketNameMapper.Keys)
                 {
-                    //msgToSend += $"^{clientName}";
                     clientSocket.Send(Encoding.ASCII.GetBytes(msgToSend));
-
                 }
-               
-
             }
         }
-        //static string GetPublicIPAddress()
-        //{
-        //    String address = "";
-        //    WebRequest request = WebRequest.Create("http://checkip.dyndns.org/");
-        //    using (WebResponse response = request.GetResponse())
-        //    using (StreamReader stream = new StreamReader(response.GetResponseStream()))
-        //    {
-        //        address = stream.ReadToEnd();
-        //    }
-
-        //    int first = address.IndexOf("Address: ") + 9;
-        //    int last = address.LastIndexOf("</body>");
-        //    address = address.Substring(first, last - first);
-
-        //    return address;
-        //}
     }
 }
-;
