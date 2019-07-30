@@ -3,6 +3,7 @@ using System.Text;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace ClientSocketApplication
 {
@@ -42,7 +43,7 @@ namespace ClientSocketApplication
                 clientSocket.Connect(ipAddr, portNumber);
 
                 Console.WriteLine("Connected to the server...");
-                Console.WriteLine("Please enter your name : ");
+                Console.Write("Please enter your name : ");
 
                 String name = Console.ReadLine();
 
@@ -50,17 +51,23 @@ namespace ClientSocketApplication
 
                 clientSocket.Send(buffName);
 
+                Console.WriteLine("Type message to send, enter <exit> to close : ");
+
                 string message = string.Empty;
 
-                Thread receiveThread = new Thread(new ThreadStart(Receive));
-                receiveThread.IsBackground = true;
-                receiveThread.Start();
+                //Thread receiveThread = new Thread(new ThreadStart(Receive));
+                //receiveThread.IsBackground = true;
+                //receiveThread.Start();
+                Task.Factory.StartNew(Receive);
+
                 try
                 {
                     while (true)
                     {
                         message = Console.ReadLine();
                         Byte[] buffSend = Encoding.ASCII.GetBytes(message);
+                        if (message.Equals("<exit>"))
+                            break;
                         clientSocket.Send(buffSend);
                     }
                 }
